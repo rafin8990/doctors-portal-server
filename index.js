@@ -78,7 +78,7 @@ async function run() {
             const payment = req.body;
             const result = await paymentsCollection.insertOne(payment);
             const id = payment.bookingId
-            const filter = {_id: ObjectId(id)}
+            const filter = {_id: new ObjectId(id)}
             const updatedDoc = {
                 $set: {
                     paid: true,
